@@ -1,6 +1,9 @@
-# CENTRE Fiat Token
+# Fiat Token
 
-The CENTRE Fiat Token contract is an ERC-20 compatible token. It allows
+Refer to the [centre-tokens](https://github.com/centrehq/centre-tokens) project.
+
+
+The Fiat Token contract is an ERC-20 compatible token. It allows
 minting/burning of tokens by multiple entities, pausing all activity, freezing
 of individual addresses, and a way to upgrade the contract so that bugs can be
 fixed or features added.
@@ -161,9 +164,9 @@ is unpaused.
 
 The Fiat Token uses the zeppelinos Unstructured-Storage Proxy pattern
 [https://docs.zeppelinos.org/docs/upgradeability_AdminUpgradeabilityProxy.html].
-[FiatTokenV1.sol](../contracts/FiatTokenV1.sol) is the implementation, the
+[FiatTokenV1.sol](../contracts/v1/FiatTokenV1.sol) is the implementation, the
 actual token will be a Proxy contract
-([FiatTokenProxy.sol](../contracts/FiatTokenProxy.sol)) which will forward all
+([FiatTokenProxy.sol](../contracts/v1/FiatTokenProxy.sol)) which will forward all
 calls to `FiatToken` via delegatecall. This pattern allows CENTRE to upgrade the
 logic of any deployed tokens seamlessly.
 

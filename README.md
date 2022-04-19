@@ -1,5 +1,7 @@
 # Inclusion USD
 
+Refer to the [centre-tokens](https://github.com/centrehq/centre-tokens) project.
+
 ## Setup
 
 Requirements:
@@ -66,9 +68,17 @@ To run tests and generate test coverage, run:
 $ yarn coverage
 ```
 
+## Verification
+
+Verify one or more contract
+
+```
+$ yarn verify SomeContractName AnotherContractName --network NETWORK
+```
+
 ## Deployment
 
-Create a copy of the file `config.js.example`, and name it `config.js`. Enter
+Create a copy of the file `config.example.js`, and name it `config.js`. Enter
 the BIP39 mnemonic phrase, the INFURA API key to use for deployment, and the
 addresses of proxy admin, owner, master minter, blacklister, and pauser in
 `config.js`. This file must not be checked into the repository. To prevent
