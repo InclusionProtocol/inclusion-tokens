@@ -18,6 +18,7 @@
     "coverage": "truffle run coverage",
     "slither": "slither --solc-disable-warnings --disable-color --exclude-dependencies .",
     "test": "truffle test",
+    "verify": "truffle run verify",
     "migrate": "truffle migrate --interactive"
   },
   "repository": {
