@@ -10,8 +10,8 @@ Requirements:
 - Yarn
 
 ```
-$ git clone git@github.com:InclusionProtocol/inclusion-token.git
-$ cd inclusion-token
+$ git clone git@github.com:InclusionProtocol/inclusion-tokens.git
+$ cd inclusion-tokens
 $ npm i -g yarn       # Install yarn if you don't already have it
 $ yarn install        # Install dependencies
 ```

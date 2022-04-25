@@ -1,5 +1,5 @@
 {
-  "name": "inclusion-token",
+  "name": "inclusion-tokens",
   "version": "1.0.0",
   "description": "",
   "main": "truffle-config.js",
@@ -23,15 +23,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/InclusionProtocol/inclusion-token.git"
+    "url": "git+https://github.com/InclusionProtocol/inclusion-tokens.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/InclusionProtocol/inclusion-token/issues"
+    "url": "https://github.com/InclusionProtocol/inclusion-tokens/issues"
   },
-  "homepage": "https://github.com/InclusionProtocol/inclusion-token#readme",
+  "homepage": "https://github.com/InclusionProtocol/inclusion-tokens#readme",
   "dependencies": {},
   "devDependencies": {
     "@openzeppelin/contracts": "^3.1.0",
