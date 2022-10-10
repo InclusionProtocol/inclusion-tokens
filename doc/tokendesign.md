@@ -1,4 +1,4 @@
-# Fiat Token
+# Inclusion Token
 
 Refer to the [centre-tokens](https://github.com/centrehq/centre-tokens) project.
 
@@ -22,8 +22,8 @@ functionality:
 - `owner` - re-assign any of the roles except for `admin`
 - `admin` - upgrade the contract, and re-assign itself
 
-CENTRE will control the address of all roles except for minters, which will be
-controlled by the entities that CENTRE elects to make minters
+INCLUSION will control the address of all roles except for minters, which will be
+controlled by the entities that INCLUSION elects to make minters
 
 ## ERC-20
 
@@ -38,21 +38,21 @@ some changes:
 ## Issuing and Destroying tokens
 
 The Fiat Token allows multiple entities to create and destroy tokens. These
-entities will have to be members of CENTRE, and will be vetted by CENTRE before
-they are allowed to create new tokens. CENTRE will not mint any tokens itself,
+entities will have to be members of INCLUSION, and will be vetted by INCLUSION before
+they are allowed to create new tokens. INCLUSION will not mint any tokens itself,
 it will approve members to mint and burn tokens.
 
-Each `minter` has a `mintingAllowance`, which CENTRE configures. The
+Each `minter` has a `mintingAllowance`, which INCLUSION configures. The
 `mintingAllowance` is how many tokens that minter may issue, and as a `minter`
-issues tokens, its `mintingAllowance` declines. CENTRE will periodically reset
+issues tokens, its `mintingAllowance` declines. INCLUSION will periodically reset
 the `mintingAllowance` as long as a `minter` remains in good standing with
-CENTRE and maintains adequate reserves for the tokens it has issued. The
+INCLUSION and maintains adequate reserves for the tokens it has issued. The
 `mintingAllowance` is to limit the damage if any particular `minter` is
 compromised.
 
 ### Adding Minters
 
-CENTRE adds minters via the `configureMinter` method. When a minter is
+INCLUSION adds minters via the `configureMinter` method. When a minter is
 configured a `mintingAllowance` is specified, which is the number of tokens that
 address is allowed to mint. As a `minter` mints tokens, the `mintingAllowance`
 will decline.
@@ -62,12 +62,12 @@ will decline.
 ### Resetting Minting Allowance
 
 The `minters` will need their allowance reset periodically to allow them to
-continue minting. When a `minter`'s allowance is low, CENTRE can make another
+continue minting. When a `minter`'s allowance is low, INCLUSION can make another
 call to `configureMinter` to reset the `mintingAllowance` to a higher value.
 
 ### Removing Minters
 
-CENTRE removes minters via the `removeMinter` method. This will remove the
+INCLUSION removes minters via the `removeMinter` method. This will remove the
 `minter` from the list of `minters` and set its `mintingAllowance` to 0. Once a
 `minter` is removed it will no longer be able to mint or burn tokens.
 
@@ -117,7 +117,7 @@ tokens, approve, mint, or burn tokens.
 
 ### Adding a blacklisted address
 
-CENTRE blacklists an address via the `blacklist` method. The specified `account`
+INCLUSION blacklists an address via the `blacklist` method. The specified `account`
 will be added to the blacklist.
 
 - Only the `blacklister` role may call `blacklist`.
@@ -125,7 +125,7 @@ will be added to the blacklist.
 
 ### Removing a blacklisted address
 
-CENTRE removes an address from the blacklist via the `unblacklist` method. The
+INCLUSION removes an address from the blacklist via the `unblacklist` method. The
 specified `account` will be removed from the blacklist.
 
 - Only the `blacklister` role may call `unblacklist`.
@@ -138,11 +138,11 @@ serious key compromise. All transfers, minting, burning, and adding minters will
 be prevented while the contract is paused. Other functionality, such as
 modifying the blacklist, removing minters, changing roles, and upgrading will
 remain operational as those methods may be required to fix or mitigate the issue
-that caused CENTRE to pause the contract.
+that caused INCLUSION to pause the contract.
 
 ### Pause
 
-CENTRE will pause the contract via the `pause` method. This method will set the
+INCLUSION will pause the contract via the `pause` method. This method will set the
 paused flag to true.
 
 - Only the `pauser` role may call pause.
@@ -151,7 +151,7 @@ paused flag to true.
 
 ### Unpause
 
-CENTRE will unpause the contract via the `unpause` method. This method will set
+INCLUSION will unpause the contract via the `unpause` method. This method will set
 the `paused` flag to false. All functionality will be restored when the contract
 is unpaused.
 
@@ -166,10 +166,10 @@ The Fiat Token uses the zeppelinos Unstructured-Storage Proxy pattern
 [FiatTokenV1.sol](../contracts/v1/FiatTokenV1.sol) is the implementation, the
 actual token will be a Proxy contract
 ([FiatTokenProxy.sol](../contracts/v1/FiatTokenProxy.sol)) which will forward
-all calls to `FiatToken` via delegatecall. This pattern allows CENTRE to upgrade
+all calls to `FiatToken` via delegatecall. This pattern allows INCLUSION to upgrade
 the logic of any deployed tokens seamlessly.
 
-- CENTRE will upgrade the token via a call to `upgradeTo` or `upgradeToAndCall`
+- INCLUSION will upgrade the token via a call to `upgradeTo` or `upgradeToAndCall`
   if initialization is required for the new version.
 - Only the `admin` role may call `upgradeTo` or `upgradeToAndCall`.
 
