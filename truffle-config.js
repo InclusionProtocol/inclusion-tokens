@@ -41,14 +41,14 @@ module.exports = {
       provider: infuraProvider("mainnet"),
       network_id: 1,
     },
-    ropsten: {
-      provider: infuraProvider("ropsten"),
-      network_id: 3,
+    sepolia: {
+      provider: infuraProvider("sepolia"),
+      network_id: 11155111,
       skipDryRun: true,
     },
-    rinkeby: {
-      provider: infuraProvider("rinkeby"),
-      network_id: 4,
+    goerli: {
+      provider: infuraProvider("goerli"),
+      network_id: 5,
       skipDryRun: true,
     },
     bsc_testnet: {
@@ -71,6 +71,7 @@ module.exports = {
   plugins: ["solidity-coverage", "truffle-plugin-verify"],
   api_keys: {
     etherscan: config.ETHERSCAN_API_KEY,
+    goerli: config.ETHERSCAN_API_KEY,
     bscscan: config.BSCSCAN_API_KEY,
   },
 };
